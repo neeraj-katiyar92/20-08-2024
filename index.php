@@ -1091,49 +1091,6 @@ $("#top").on("mousemove", function (t) {
 
 <!-- end horizontal scroll -->
 
-<script src='https://unpkg.com/gsap@3/dist/gsap.min.js'></script>
-<script src='https://assets.codepen.io/16327/SplitText3.min.js'></script>
-<script src='https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js'></script>
-<script>
-   
-   const targets = gsap.utils.toArray(".split");
-   gsap.registerPlugin(ScrollTrigger, SplitText);
-  function setupSplits() {
-  targets.forEach((target) => {
-    let splitHeading = new SplitText(target, { type: "words, chars" });
-    let chars = splitHeading.chars; //an array of all the divs that wrap each character
-    gsap.from(chars, {
-      yPercent: 130,
-      stagger: 0.05,
-      ease: "back.out",
-      duration: 1,
-      scrollTrigger: {
-        trigger: target,
-        //markers: true,
-        start: "top 75%",
-        end: "bottom center",
-        //scrub: true
-      }
-    });
-  });
-}
-setupSplits();
-gsap.registerPlugin(ScrollTrigger);
-
-gsap.from(".fitness-center", {
-  opacity: 0,
-  yPercent: () => gsap.utils.random(-100, 100), // Random x position
-  stagger: {
-    each: 0.2
-  },
-  scrollTrigger: {
-    trigger: ".fitness-center",
-    start: "top 70%", // Animation starts when the top of the element is 80% from the top of the viewport
-    end: "top 30%",   // Animation ends when the top of the element is 60% from the top of the viewport
-    scrub: true       // Optional: sync animation with scroll
-  }
-});
-</script>
 
 </body>
 </html>
